@@ -28,7 +28,9 @@ public class SecondServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
-		response.getWriter().append("<h1>Hello Servlet</h1>").append("<h2>i`m jihoon</h2>");
+		response.getWriter()
+		.append("<h1>Hello Servlet</h1>")
+		.append("<h2>i`m jihoon</h2>");
 	}
 
 	/**

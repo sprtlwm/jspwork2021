@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <h1>Hello new jsp file</h1>
 <h2>i`m jihoon</h2>
+
 </body>
 </html>
