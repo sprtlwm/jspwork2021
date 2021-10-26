@@ -7,14 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>스크립트릿</h1>
-<p>자바코드 작성 가능</p>
 <%
-//자바코드 작성가능
-System.out.println("hello jsp");
-	for(int i=0; i<5; i++){
-	out.write("<p>스크립트릿으로 작성한 html 코드</p>\r\n");
+	for(int i = 0; i<5; i++){
+		
+		out.write("<p>스크립트릿으로 작성한 html</p>\r\n");
 	}
 %>
+<script>
+	for(let i = 0; i<5; i++){
+		document.write("<p>js로 작성한 html<\p>");
+	}
+</script>
 </body>
 </html>
