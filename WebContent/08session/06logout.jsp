@@ -12,21 +12,11 @@
 </head>
 <body>
 
-<h1>login</h1>
+<%
+session.invalidate();
+%>
 
-<form action="07process.jsp" method="post">
-id : <input type="text" name="userid" value="iamnormal"> <br>
-pw : <input type="password" name="userpw" > <br>
-	<input type="submit" value="로그인">
-</form>
-
+<a href="06login.jsp">로그인</a>
+<a href="06main.jsp">메인</a>
 </body>
 </html>
-
-
-
-
-
-
-
-

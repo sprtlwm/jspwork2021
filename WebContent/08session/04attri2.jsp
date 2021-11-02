@@ -12,21 +12,32 @@
 </head>
 <body>
 
-<h1>login</h1>
+<%Set<String> set=(Set<String>) session.getAttribute("food");
+if(set==null){
+	set = new HashSet<>();
+	session.setAttribute("food", set);
+}
+String food = request.getParameter("food");
 
-<form action="07process.jsp" method="post">
-id : <input type="text" name="userid" value="iamnormal"> <br>
-pw : <input type="password" name="userpw" > <br>
-	<input type="submit" value="로그인">
-</form>
+if(food !=null){
+	set.add(food);
+}
+%>
+<a href="04attr1.jsp">선택하기</a>
 
+<div>
+<h1>선택한 음식들</h1>
+
+<%
+for(String item : set){	
+%>
+	<li><%= item %></li>
+<%
+}
+%>
+</div>
 </body>
 </html>
-
-
-
-
-
 
 
 

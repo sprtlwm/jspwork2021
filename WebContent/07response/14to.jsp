@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
+<%@ page import="java.net.URLEncoder" %>
+
 <% request.setCharacterEncoding("utf-8"); %>
 
 <!DOCTYPE html>
@@ -12,21 +14,9 @@
 </head>
 <body>
 
-<h1>login</h1>
 
-<form action="07process.jsp" method="post">
-id : <input type="text" name="userid" value="iamnormal"> <br>
-pw : <input type="password" name="userpw" > <br>
-	<input type="submit" value="로그인">
-</form>
+<h1>14to.jsp</h1>
 
+param :<%=request.getParameter("param") %>
 </body>
 </html>
-
-
-
-
-
-
-
-

@@ -3,6 +3,11 @@
 <%@ page import="java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
 
+<% 
+String userid = request.getParameter("userid");
+if(userid != null && userid.equals("iamuser")){
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,21 +17,19 @@
 </head>
 <body>
 
-<h1>login</h1>
-
-<form action="07process.jsp" method="post">
-id : <input type="text" name="userid" value="iamnormal"> <br>
-pw : <input type="password" name="userpw" > <br>
-	<input type="submit" value="로그인">
-</form>
+<h1>메인 컨텐츠</h1>
 
 </body>
 </html>
 
 
-
-
-
-
-
-
+<%
+}else{
+%>
+<script>
+alert("아이디나 패스워드가 일치하지 않습니다.");
+window.location.href="12login-form.jsp";
+</script>
+<%
+}
+%>

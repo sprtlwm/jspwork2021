@@ -11,22 +11,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<h1>login</h1>
-
-<form action="07process.jsp" method="post">
-id : <input type="text" name="userid" value="iamnormal"> <br>
-pw : <input type="password" name="userpw" > <br>
-	<input type="submit" value="로그인">
-</form>
-
+<h1>17to.jsp</h1>
 </body>
 </html>
-
-
-
-
-
-
-
-

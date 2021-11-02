@@ -12,21 +12,18 @@
 </head>
 <body>
 
-<h1>login</h1>
-
-<form action="07process.jsp" method="post">
-id : <input type="text" name="userid" value="iamnormal"> <br>
-pw : <input type="password" name="userpw" > <br>
-	<input type="submit" value="로그인">
+<form action="05attr2.jsp">
+	<!-- select>option*5^br+input:s -->
+	<select name="food" id="">
+		<option value="banana">banana</option>
+		<option value="apple">apple</option>
+		<option value="berry">berry</option>
+		<option value="melon">melon</option>
+		<option value="water">water</option>
+	</select>
+	<br>
+	<input type="submit" value="등록">
 </form>
 
 </body>
 </html>
-
-
-
-
-
-
-
-

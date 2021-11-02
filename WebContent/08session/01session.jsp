@@ -11,22 +11,23 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>session</h1>
+<p>같은 브라우저에서 온 request가 공유하는 객체</p>
 
-<h1>login</h1>
+<%
+Integer count = (Integer) session.getAttribute("count");
+if(count ==null){
+	session.setAttribute("count",1);
+}
+%>
 
-<form action="07process.jsp" method="post">
-id : <input type="text" name="userid" value="iamnormal"> <br>
-pw : <input type="password" name="userpw" > <br>
-	<input type="submit" value="로그인">
-</form>
+<%= session.getAttribute("count") %>
+
+<%
+Integer c =(Integer) session.getAttribute("count");
+c++;
+session.setAttribute("count", c);
+%>
 
 </body>
 </html>
-
-
-
-
-
-
-
-

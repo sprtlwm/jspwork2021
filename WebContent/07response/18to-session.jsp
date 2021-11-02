@@ -12,21 +12,9 @@
 </head>
 <body>
 
-<h1>login</h1>
+<h1>18to-session.jsp</h1>
 
-<form action="07process.jsp" method="post">
-id : <input type="text" name="userid" value="iamnormal"> <br>
-pw : <input type="password" name="userpw" > <br>
-	<input type="submit" value="로그인">
-</form>
-
+<%= request.getAttribute("attr1") %> <br>
+<%= session.getAttribute("attr2") %>
 </body>
 </html>
-
-
-
-
-
-
-
-

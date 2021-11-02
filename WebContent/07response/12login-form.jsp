@@ -12,21 +12,11 @@
 </head>
 <body>
 
-<h1>login</h1>
-
-<form action="07process.jsp" method="post">
-id : <input type="text" name="userid" value="iamnormal"> <br>
-pw : <input type="password" name="userpw" > <br>
-	<input type="submit" value="로그인">
+<form action="12main.jsp" method="post">
+		<input type="text" name="userid" placeholder="아이디"> <br>
+		<input type="password" name="password" placeholder="암호"> <br>
+		<input type="submit" value="로그인">
 </form>
 
 </body>
 </html>
-
-
-
-
-
-
-
-

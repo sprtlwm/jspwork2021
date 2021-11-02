@@ -11,22 +11,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>세션을 유지하는 방법</h1>
+<p>첫번째 요청에 대한 응답에 쿠키를 포함</p>
 
-<h1>login</h1>
-
-<form action="07process.jsp" method="post">
-id : <input type="text" name="userid" value="iamnormal"> <br>
-pw : <input type="password" name="userpw" > <br>
-	<input type="submit" value="로그인">
-</form>
-
+<p>두번째 요청부터 같은 쿠키를 가지고 있으면 같은 브라우저에서 온 요청이라고 판단</p>
 </body>
 </html>
-
-
-
-
-
-
-
-

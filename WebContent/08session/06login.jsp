@@ -12,21 +12,21 @@
 </head>
 <body>
 
-<h1>login</h1>
-
-<form action="07process.jsp" method="post">
-id : <input type="text" name="userid" value="iamnormal"> <br>
-pw : <input type="password" name="userpw" > <br>
+<form action="">
+	<input type="text" name="id" placeholder="아이디"> <br>
+	<input type="password" name="password" placeholder="암호"> <br>
 	<input type="submit" value="로그인">
 </form>
 
+<%
+String id = request.getParameter("id");
+if(id !=null){
+	session.setAttribute("username", id);
+}
+%>
+
+<a href="06main.jsp">메인 페이지</a>
 </body>
 </html>
-
-
-
-
-
-
 
 

@@ -12,21 +12,10 @@
 </head>
 <body>
 
-<h1>login</h1>
+<h1>13to.jsp 컨텐츠</h1>
 
-<form action="07process.jsp" method="post">
-id : <input type="text" name="userid" value="iamnormal"> <br>
-pw : <input type="password" name="userpw" > <br>
-	<input type="submit" value="로그인">
-</form>
-
+a :<%= request.getParameter("a") %> <br>
+b :<%= request.getParameter("b") %> <br>
+c :<%= request.getParameter("c") %> <br>
 </body>
 </html>
-
-
-
-
-
-
-
-

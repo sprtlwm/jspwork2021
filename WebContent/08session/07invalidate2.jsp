@@ -12,21 +12,11 @@
 </head>
 <body>
 
-<h1>login</h1>
+<%
+session.invalidate();
+%>
 
-<form action="07process.jsp" method="post">
-id : <input type="text" name="userid" value="iamnormal"> <br>
-pw : <input type="password" name="userpw" > <br>
-	<input type="submit" value="로그인">
-</form>
+<a href="07invalidate1.jsp">다시 선택하기</a>
 
 </body>
 </html>
-
-
-
-
-
-
-
-

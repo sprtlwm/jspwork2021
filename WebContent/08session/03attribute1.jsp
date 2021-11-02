@@ -12,21 +12,10 @@
 </head>
 <body>
 
-<h1>login</h1>
+<h3>attribute 1</h3>
 
-<form action="07process.jsp" method="post">
-id : <input type="text" name="userid" value="iamnormal"> <br>
-pw : <input type="password" name="userpw" > <br>
-	<input type="submit" value="로그인">
-</form>
-
+<%
+session.setAttribute("food", "apple");
+%>
 </body>
 </html>
-
-
-
-
-
-
-
-

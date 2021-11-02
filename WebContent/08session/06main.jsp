@@ -12,21 +12,21 @@
 </head>
 <body>
 
-<h1>login</h1>
+<%
+String name = (String) session.getAttribute("username");
 
-<form action="07process.jsp" method="post">
-id : <input type="text" name="userid" value="iamnormal"> <br>
-pw : <input type="password" name="userpw" > <br>
-	<input type="submit" value="로그인">
-</form>
+if(name !=null){
+%>
+	<h1><%= name %>님 반갑습니다.</h1>	
+	<a href="06logout.jsp">로그아웃</a>
+<%
+}else {
+%>
+	<h1>손님 반갑습니다.</h1>
+<%
+}
+%>
 
 </body>
 </html>
-
-
-
-
-
-
-
 
