@@ -12,15 +12,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<form action="08view.jsp">
-	<input type="text" name="name" placeholder="이름">
-	<br>
-	<input type="number" name="age" placeholder="나이">
-	<br>
-	<input type="submit" value="전송">	
-	</form>
-	
-	
+<h1>foreach - array 배열</h1>
+<%
+pageContext.setAttribute("arr",new String[]{"java","spring","mysql","oracle"});
+%>	
+
+<c:forEach items="${arr }" var="item">
+	${item }
+</c:forEach>
+																																																				
+																	
 </body>
 </html>

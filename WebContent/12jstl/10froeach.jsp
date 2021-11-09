@@ -12,15 +12,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<form action="08view.jsp">
-	<input type="text" name="name" placeholder="이름">
-	<br>
-	<input type="number" name="age" placeholder="나이">
-	<br>
-	<input type="submit" value="전송">	
-	</form>
-	
-	
+<h1>jstl core forEach</h1>
+<c:forEach begin="1" end="3">
+	<p>반복할 코드1</p>
+</c:forEach>
+
+<c:forEach begin="5" end="7">
+	<p>반복할 코드2</p>
+</c:forEach>
+
+<c:forEach begin="1" end="10" step="2">
+	<p>반복할 코드3</p>
+</c:forEach>
+
+<c:forEach begin="1" end="10" step="2" var="i">
+	<p>${i } : 반복할 코드4</p>
+</c:forEach>
 </body>
 </html>

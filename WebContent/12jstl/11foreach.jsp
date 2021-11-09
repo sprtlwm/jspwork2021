@@ -12,15 +12,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<form action="08view.jsp">
-	<input type="text" name="name" placeholder="이름">
-	<br>
-	<input type="number" name="age" placeholder="나이">
-	<br>
-	<input type="submit" value="전송">	
-	</form>
-	
-	
+<h1>foreach - 구구단</h1>
+
+<c:forEach begin="1" end="9" var="i">
+	<p>2 X ${i } = ${2*i }</p>
+</c:forEach>
+
+
+
 </body>
 </html>
