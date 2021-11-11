@@ -25,5 +25,5 @@ if(list ==null){
 list.add(book);
 
 //25list-book.jsp로 리디렉션
-response.sendRedirect("25list-book.jsp");
+response.sendRedirect("25list-book-tag.jsp");
 %>
