@@ -4,7 +4,6 @@
 <%-- <%@ attribute name="books"%> --%>
 
 <table class="table table-hover">
-
 	<thead>
 		<tr>
 			<th></th>
@@ -26,18 +25,32 @@
 				<c:url value="25modify.jsp" var="modifyUrl">
 					<c:param name="index" value="${status.index }" />
 				</c:url>
+				<td>
+					<%-- <a class="btn btn-danger" href="${deleteUrl }"><i class="fas fa-trash-alt"></i></a> --%>
+					<button type="button" class="btn btn-danger delete-modal-button" data-href="${deleteUrl }" data-toggle="modal" data-target="#exampleModal">
+						<i class="fas fa-trash-alt"></i>
+					</button>
 
-				<td><a class="btn btn-danger" href="${deleteUrl }"><i
-						class="fas fa-trash-alt"></i></a> <a href="${modifyUrl }"
-					class="btn btn-secondary"> <i class="fas fa-edit"></i>
-				</a></td>
-
+					<a href="${modifyUrl }" class="btn btn-secondary">
+						<i class="fas fa-edit"></i>
+					</a>
+				</td>
 				<td>${status.count }</td>
-				<td><c:out value="${book.title }" /></td>
-				<td><c:out value="${book.writer }" /></td>
-				<td><c:out value="${book.price }" /></td>
-				<td><c:out value="${book.publisher }" /></td>
-				<td><c:out value="${book.stock }" /></td>
+				<td>
+					<c:out value="${book.title }" />
+				</td>
+				<td>
+					<c:out value="${book.writer }" />
+				</td>
+				<td>
+					<c:out value="${book.price }" />
+				</td>
+				<td>
+					<c:out value="${book.publisher }" />
+				</td>
+				<td>
+					<c:out value="${book.stock }" />
+				</td>
 			</tr>
 		</c:forEach>
 	</tbody>

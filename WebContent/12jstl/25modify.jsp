@@ -18,17 +18,15 @@
 </head>
 <body>
 
-<c:set value="${applicationScope.books[param.index] }" var="book"/>
+<c:set value="${applicationScope.books[param.index] }" var="book" />
 
-<div class="container">
-<h1>책 수정</h1>
-
-<a href="25list-book-tag.jsp">책 목록보기</a>
-
+	<div class="container">
+		<a class="btn btn-secondary btn-block" href="25list-book-tag.jsp">책 목록 보기</a>
+		<h1>책 수정</h1>
 		<div class="row ">
-			<div class="col-12">
+			<div class="col-6">
 				<form action="25modify-process.jsp" method="post">
-				<input type="hidden" name="index" value="${param.index }">
+					<input type="hidden" name="index" value="${param.index }">
 					<div class="form-group">
 						<label for="titleInput1">책 제목</label>
 						<input type="text" name="title" class="form-control" id="titleInput1" value="${book.title }">

@@ -27,8 +27,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<h1>책 목록(${fn:length(books)}권)</h1>
+	<h1>책 목록 (${fn:length(books) } 권)</h1>
 
 	<a href="25book-form.jsp">책 등록하기</a>
 
@@ -37,7 +36,7 @@
 	</c:if>
 
 	<c:if test="${not empty books }">
-		<table class="table table-hover" >
+		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th></th>
@@ -49,6 +48,7 @@
 					<th>재고</th>
 				</tr>
 			</thead>
+
 			<tbody>
 				<c:forEach items="${books }" var="book" varStatus="status">
 					<tr>
@@ -56,26 +56,59 @@
 							<c:param name="index" value="${status.index }" />
 						</c:url>
 						<c:url value="25modify.jsp" var="modifyUrl">
-							<c:param name="index" value="${status.index }"/>
+							<c:param name="index" value="${status.index }" />
 						</c:url>
-						
-						<td><a class="btn btn-danger" href="${deleteUrl }"><i class="fas fa-trash-alt"></i></a>
-						<a href="${modifyUrl }" class="btn btn-secondary">
-							<i class="fas fa-edit"></i>
-						</a>	
+						<td>
+							<%-- <a class="btn btn-danger" href="${deleteUrl }"><i class="fas fa-trash-alt"></i></a> --%>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+								<i class="fas fa-trash-alt"></i>
+							</button>
+							<a href="${modifyUrl }" class="btn btn-secondary">
+								<i class="fas fa-edit"></i>
+							</a>
 						</td>
-					
 						<td>${status.count }</td>
-						<td><c:out value="${book.title }" /></td>
-						<td><c:out value="${book.writer }" /></td>
-						<td><c:out value="${book.price }" /></td>
-						<td><c:out value="${book.publisher }" /></td>
-						<td><c:out value="${book.stock }" /></td>
+						<td>
+							<c:out value="${book.title }" />
+						</td>
+						<td>
+							<c:out value="${book.writer }" />
+						</td>
+						<td>
+							<c:out value="${book.price }" />
+						</td>
+						<td>
+							<c:out value="${book.publisher }" />
+						</td>
+						<td>
+							<c:out value="${book.stock }" />
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</c:if>
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">...</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"crossorigin="anonymous"></script>
 </body>

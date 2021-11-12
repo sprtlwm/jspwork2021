@@ -15,15 +15,3 @@ list.remove(index);
 
 response.sendRedirect("25list-book-tag.jsp");
 %>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="<%= request.getContextPath() %>/resource/css/icon/css/all.css">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>
