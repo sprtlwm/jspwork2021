@@ -14,7 +14,7 @@
 <body>
 <h1>책 등록</h1>
 
-<form action="25process.jsp" method="post">
+ <form action="25process.jsp" method="post">
 	<input type="text" name="title" placeholder="책 제목">
 	<br>
 	<input type="text" name="writer" placeholder="저자" >

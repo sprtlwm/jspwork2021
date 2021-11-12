@@ -20,26 +20,42 @@
 
 <c:set value="${applicationScope.books[param.index] }" var="book"/>
 
+<div class="container">
 <h1>책 수정</h1>
 
-<form action="25modify-process.jsp" method="post">
-	<input type="hidden" name="index" value="${param.index }">
-	<input type="text" name="title" placeholder="책 제목" value="${book.title }">
-	<br>
-	<input type="text" name="writer" placeholder="저자" value="${book.writer }" >
-	<br>
-	<input type="number" name="price" placeholder="가격" value="${book.price }" > 원
-	<br>
-	<input type="text" name="publisher" placeholder="출판사" value="${book.publisher }">
-	<br>
-	<input type="number" name="stock" value="${book.stock }">재고
-	<br>
-	<input type="submit" value="수정">
-</form>
-
-<br>
-
 <a href="25list-book-tag.jsp">책 목록보기</a>
+
+		<div class="row ">
+			<div class="col-12">
+				<form action="25modify-process.jsp" method="post">
+				<input type="hidden" name="index" value="${param.index }">
+					<div class="form-group">
+						<label for="titleInput1">책 제목</label>
+						<input type="text" name="title" class="form-control" id="titleInput1" value="${book.title }">
+						<small id="titleHelp" class="form-text text-muted">책 제목을 입력해주세요.</small>
+					</div>
+					<div class="form-group">
+						<label for="writerInput1">작성자</label>
+						<input type="text" name="writer" class="form-control" id="writerInput1" value="${book.writer }">
+					</div>
+					<div class="form-group">
+						<label for="priceInput1">가격</label>
+						<input type="number" name="price" class="form-control" id="priceInput1" value="${book.price }">
+					</div>
+					<div class="form-group">
+						<label for="publisherInput1">출판사</label>
+						<input type="text" name="publisher" class="form-control" id="publisherInput1" value="${book.publisher }">
+					</div>
+					<div class="form-group">
+						<label for="stockInput1">재고</label>
+						<input type="number" name="stock" class="form-control" id="stockInput1" value="${book.stock }">
+					</div>
+					<button type="submit" class="btn btn-primary">수정</button>
+				</form>
+
+			</div>
+		</div>
+	</div>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>

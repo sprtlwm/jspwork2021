@@ -5,7 +5,7 @@
 <%@ attribute name="align" %>
 
 
-<div style="color:${color}; align=${align};">
+<div style="color:${color}; text-align:${align};">
 	<jsp:doBody/>
 </div>
 
