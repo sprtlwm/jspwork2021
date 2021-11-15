@@ -25,14 +25,13 @@
 			<div class="col">
 				<h1>Lorem ipsum dolor.</h1>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores ut atque minima error sequi laudantium recusandae voluptatem minus natus voluptatibus adipisci magnam ipsam eligendi sit officiis nisi necessitatibus ea pariatur.</p>
+			<button class="myBtn" data-number="0">0</button>
+			<button class="myBtn" data-number="1">1</button>
+			<button class="myBtn" data-number="2">2</button>
 			</div>
-			
-			<button class="myBtn" data-number="0">1</button>
-			<button class="myBtn"data-number="1">2</button>
-			<button class="myBtn"data-number="2">3</button>
-			
+
 			<div class="col">
-				<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="1000">
+				<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="1000" data-pause="false">
 
 					<ol class="carousel-indicators">
 						<li data-target="#carouselExampleSlidesOnly" data-slide-to="0" class="active"></li>
@@ -61,17 +60,20 @@
 
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-	
+
 	<script>
-		$(document).ready(function(){
-			$(".myBtn").click(function)
-		})
+		$(document).ready(function() {
+			$(".myBtn").click(function() {
+				let number = Number($(this).attr("data-number"));
+				$("#carouselExampleSlidesOnly").carousel(number);
+			});
+		});
 	</script>
 
 </body>
