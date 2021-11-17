@@ -2,103 +2,106 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
   <display-name>jspwork2021</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
 
+	<!-- 세션 설정 -->
 	<session-config>
-	<!-- 분 단위  -->
-	<session-timeout>30</session-timeout>
+		<!-- 분 단위 -->
+		<session-timeout>30</session-timeout>
 	</session-config>
-	
- <servlet>
-  	<servlet-name>servlet0103</servlet-name>
-  	<servlet-class>servlet01.S03Servlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>servlet0103</servlet-name>
-  	<url-pattern>/servlet01/servlet03</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>servlet0104</servlet-name>
-  	<servlet-class>servlet01.S04Servlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>servlet0104</servlet-name>
-  	<url-pattern>/servlet01/servlet04</url-pattern>
-  </servlet-mapping>
-  
-  
- <filter>
-  	<filter-name>f03filter</filter-name>
-  	<filter-class>filter01.F03Filter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>f03filter</filter-name>
-  	<url-pattern>/filterex1/s03</url-pattern>
-  </filter-mapping>
-  
-  <filter>
-  	<filter-name>f04filter</filter-name>
-  	<filter-class>filter01.F04Filter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>f04filter</filter-name>
-  	<url-pattern>/filterex1/s04</url-pattern>
-  </filter-mapping>
-  
-  <filter>
-  	<filter-name>f05filter</filter-name>
-  	<filter-class>filter02.F05Filter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>f05filter</filter-name>
-  	<url-pattern>/filterex2/s01</url-pattern>
-  	<url-pattern>/filterex2/s02</url-pattern>
-  </filter-mapping>
-  
-  <filter>
-  	<filter-name>f06filter</filter-name>
-  	<filter-class>filter02.F06Filter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>f06filter</filter-name>
-  	<url-pattern>/filterex2/*</url-pattern>
-  </filter-mapping>
-  
-  <filter>
-  	<filter-name>f07filter</filter-name>
-  	<filter-class>filter02.F07Filter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>f07filter</filter-name>
-  	<url-pattern>/filterex2/*</url-pattern>
-  </filter-mapping>
-  
-  <filter>
-  	<filter-name>f08filter</filter-name>
-  	<filter-class>filter03.F08Filter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>f08filter</filter-name>
-  	<url-pattern>/filterex3/*</url-pattern>
-  </filter-mapping>
-  
-  <filter>
-  	<filter-name>f09filter</filter-name>
-  	<filter-class>filter03.F09Filter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>f09filter</filter-name>
-  	<url-pattern>/filterex3/*</url-pattern>
-  </filter-mapping>
-  
-  <filter>
+
+
+	<!-- 서블릿 설정 -->
+	<servlet>
+		<servlet-name>servlet0103</servlet-name>
+		<servlet-class>servlet01.S03Servlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>servlet0103</servlet-name>
+		<url-pattern>/servlet01/servlet03</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>servlet0104</servlet-name>
+		<servlet-class>servlet01.S04Servlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>servlet0104</servlet-name>
+		<url-pattern>/servlet01/servlet04</url-pattern>
+	</servlet-mapping>
+
+	<!-- 필터 설정 -->
+	<filter>
+		<filter-name>f03filter</filter-name>
+		<filter-class>filter01.F03Filter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>f03filter</filter-name>
+		<url-pattern>/filterex1/s03</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>f04filter</filter-name>
+		<filter-class>filter01.F04Filter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>f04filter</filter-name>
+		<url-pattern>/filterex1/s04</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>f05filter</filter-name>
+		<filter-class>filter02.F05Filter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>f05filter</filter-name>
+		<url-pattern>/filterex2/s01</url-pattern>
+		<url-pattern>/filterex2/s02</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>f06filter</filter-name>
+		<filter-class>filter02.F06Filter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>f06filter</filter-name>
+		<url-pattern>/filterex2/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>f07filter</filter-name>
+		<filter-class>filter02.F07Filter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>f07filter</filter-name>
+		<url-pattern>/filterex2/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>f08filter</filter-name>
+		<filter-class>filter03.F08Filter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>f08filter</filter-name>
+		<url-pattern>/filterex3/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>f09filter</filter-name>
+		<filter-class>filter03.F09Filter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>f09filter</filter-name>
+		<url-pattern>/filterex3/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
 		<filter-name>f10filter</filter-name>
 		<filter-class>filter04.F10MemberFilter</filter-class>
 	</filter>
@@ -107,9 +110,10 @@
 		<url-pattern>/filterex4/member</url-pattern>
 	</filter-mapping>
 	
+	<!-- Book App Character Encoding Filter -->
 	<filter>
 		<filter-name>BookCharEncodingFilter</filter-name>
-		<filter-class>servlet08.S01BookCharencodingFilter</filter-class>
+		<filter-class>servlet08.S01BookCharEncodingFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>BookCharEncodingFilter</filter-name>

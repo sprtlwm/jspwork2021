@@ -32,24 +32,22 @@ public class S04BookRemoveServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 0. 사전 작업
-				HttpSession session = request.getSession();
-				List<Bean06> books = (List<Bean06>) session.getAttribute("books");
-				
-				// 2. 요청 처리(파라미터 수집/가공)
-				String indexStr = request.getParameter("id");
-				int index = Integer.parseInt(indexStr);
-				
-				// 3. business 로직 
-				books.remove(index);
-				
-				// 4. data를 attribute에 추가
-				
-				
-				// 5. forward / redirect
-				String location = request.getContextPath() + "/servlet08/list";
-				response.sendRedirect(location);
+		HttpSession session = request.getSession();
+		List<Bean06> books = (List<Bean06>) session.getAttribute("books");
+		
+		// 2. 요청 처리(파라미터 수집/가공)
+		String indexStr = request.getParameter("id");
+		int index = Integer.parseInt(indexStr);
+		
+		// 3. business 로직 
+		books.remove(index);
+		
+		// 4. data를 attribute에 추가
 		
 		
+		// 5. forward / redirect
+		String location = request.getContextPath() + "/servlet08/list";
+		response.sendRedirect(location);
 	}
 
 	/**
