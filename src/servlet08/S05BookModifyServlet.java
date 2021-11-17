@@ -19,7 +19,7 @@ import sample03javabean.Bean06;
 public class S05BookModifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
+    /**	
      * @see HttpServlet#HttpServlet()
      */
     public S05BookModifyServlet() {
@@ -59,7 +59,7 @@ public class S05BookModifyServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				List<Bean06> list = (List<Bean06>) session.getAttribute("books");
 				
-				request.setCharacterEncoding("utf-8");
+//				request.setCharacterEncoding("utf-8");
 				
 				// 2. request 분석/가공
 				String indexStr = request.getParameter("index");
