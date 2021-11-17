@@ -26,8 +26,8 @@ public class S06ListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String path = "/WEB-INF/view/servlet06/s03list.jsp";
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**

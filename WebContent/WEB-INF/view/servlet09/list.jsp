@@ -22,13 +22,13 @@
         <!-- ul.nav.flex-column>li.nav-item*3>a.nav-link -->
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a href="${pageContext.request.contextPath }/servlet08/main" class="nav-link">MAIN</a>
+            <a href="${pageContext.request.contextPath }/servlet09/main" class="nav-link">MAIN</a>
           </li>
           <li class="nav-item">
-            <a href="${pageContext.request.contextPath }/servlet08/add" class="nav-link">ADD</a>
+            <a href="${pageContext.request.contextPath }/servlet09/add" class="nav-link">ADD</a>
           </li>
           <li class="nav-item">
-            <a href="${pageContext.request.contextPath }/servlet08/list" class="nav-link">LIST</a>
+            <a href="${pageContext.request.contextPath }/servlet09/list" class="nav-link">LIST</a>
           </li>
         </ul>
       </div>
@@ -45,8 +45,7 @@
               <th>가격</th>
               <th>출판사</th>
               <th>재고</th>
-              <th>삭제</th>
-              <th>수정</th>
+              <th>비고</th>
             </tr>
           </thead>
           <tbody>
@@ -59,21 +58,13 @@
                 <td>${book.publisher }</td>
                 <td>${book.stock }</td>
                 <td>
-                  <c:url value="/servlet08/remove" var="removeUrl">
+                  <c:url value="/servlet09/remove" var="removeUrl">
                     <c:param name="id" value="${status.index }" />
                   </c:url>
                   <!-- button.btn.btn-danger>i.fas.fa-trash -->
                   <button class="btn btn-danger removeBtn" data-toggle="modal" data-target="#confirmModal1" data-link="${removeUrl }">
                     <i class="fas fa-trash"></i>
                   </button>
-                </td>
-                <td>
-                <c:url value="/servlet08/modify" var="modifyUrl">
-                	<c:param name="id" value="${status.index }"/>
-                </c:url>
-                <a href="${modifyUrl }" class="btn btn-warning">
-                	<i class="fas fa-edit"></i>
-                </a>
                 </td>
               </tr>
             </c:forEach>

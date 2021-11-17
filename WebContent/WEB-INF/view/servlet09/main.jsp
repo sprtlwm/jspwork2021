@@ -16,8 +16,32 @@
 </head>
 <body>
 
+<div class="container">
+    <div class="row">
+      <div class="col-2">
+        <%-- side menu --%>
+        <!-- ul.nav.flex-column>li.nav-item*3>a.nav-link -->
+        <ul class="nav flex-column">
+        	<li class="nav-item">
+        		<a href="${pageContext.request.contextPath }/servlet09/main" class="nav-link">MAIN</a>
+        	</li>
+        	<li class="nav-item">
+        		<a href="${pageContext.request.contextPath }/servlet09/add" class="nav-link">ADD</a>
+        	</li>
+        	<li class="nav-item">
+        		<a href="${pageContext.request.contextPath }/servlet09/list" class="nav-link">LIST</a>
+        	</li>
+        </ul>
+      </div>
+      <div class="col-10">
+        <%-- main contents --%>
+        <h1>책 관리 APP</h1>
+      </div>
+    </div>
+  </div>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 </body>
 </html>
+

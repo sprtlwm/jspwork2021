@@ -1,4 +1,4 @@
-package servlet08;
+package servlet09;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class S03BookListServlet
+ * Servlet implementation class S05BookMainServlet
  */
-@WebServlet("/servlet08/list")
-public class S03BookListServlet extends HttpServlet {
+@WebServlet("/servlet09/main")
+public class S05BookMainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public S03BookListServlet() {
+    public S05BookMainServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,12 +26,7 @@ public class S03BookListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 3. business logic (db에서 책 목록 읽기)
-		
-		// 4. request attribute 추가
-		
-		// 5. forward
-		String path = "/WEB-INF/view/servlet08/list.jsp";
+		String path = "/WEB-INF/view/servlet09/main.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 

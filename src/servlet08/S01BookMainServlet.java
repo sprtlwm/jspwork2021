@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class S01BookMainServlet
  */
-@WebServlet("/servlet06/main")
+@WebServlet("/servlet08/main")
 public class S01BookMainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -26,9 +26,8 @@ public class S01BookMainServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	String path	= "WEB-INF/view/servlet08/main.jsp";
-	request.getRequestDispatcher(path).forward(request,response);
-	
+		String path = "/WEB-INF/view/servlet08/main.jsp";
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**
