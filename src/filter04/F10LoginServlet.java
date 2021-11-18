@@ -36,14 +36,16 @@ public class F10LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
-		String pw = request.getParameter("passward");
+		String pw = request.getParameter("password");
 		
-		String location ="";
-		if(id.equals(pw)) {
+		String location = "";
+		if (id.equals(pw)) {
+			// 로그인 성공
 			HttpSession session = request.getSession();
 			session.setAttribute("logedIn", "ok");
-			location = request.getContextPath() +"/filterex4/member";
-		}else {
+			
+			location = request.getContextPath() + "/filterex4/member";
+		} else {
 			location = request.getContextPath() + "/filterex4/login";
 		}
 		response.sendRedirect(location);

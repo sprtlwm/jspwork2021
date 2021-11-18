@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -16,11 +17,13 @@
 </head>
 <body>
 
-<form action="" method="post">
-  <input type="text" name="id"> <br>
-  <input type="password" name="password"> <br>
-  <input type="submit" value="로그인">
-</form>
+\${appAttr1 } : ${appAttr1 } <br>
+\${appAttr2 } : ${appAttr2 } <br>
+
+ <hr>
+   \${pageCotext.request.contextPath } : ${pageContext.request.contextPath } <br>
+   \${appRoot } : ${appRoot } <br>
+   <%= request.getContextPath() %> <br>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
