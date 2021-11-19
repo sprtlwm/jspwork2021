@@ -24,4 +24,4 @@ SELECT * FROM Customers
 WHERE Country='Germany' AND NOT (City='Berlin' OR City='München');
 
 
-SELECT * FROM Customers WHERE Country='Germany' AND Country='USA';
+SELECT * FROM Customers WHERE Country='Germany' OR Country ='USA';
