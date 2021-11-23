@@ -12,6 +12,7 @@ import jdbc02.bean.Supplier;
 
 public class SupplierDAO {
 
+	
 	public List<String> getCountryList(Connection con) {
 		List<String> list = new ArrayList<String>();
 		String sql = "SELECT DISTINCT country FROM Suppliers ORDER BY country";
@@ -36,6 +37,7 @@ public class SupplierDAO {
 				+ "FROM Suppliers WHERE Country = ?";
 
 		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
 			
 			pstmt.setString(1, country);
 			
