@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,14 +41,31 @@ public class JDBC17Servlet extends HttpServlet {
 		ServletContext application = request.getServletContext();
 		DataSource ds = (DataSource) application.getAttribute("dbpool");
 		List<Supplier> list = new ArrayList<>();
+		List<String> countryList = new ArrayList<>();
 
 		// 2. request 분석/가공
 		String country = request.getParameter("country");
-
+		
 		// 3. business logic
+		
+		//3.1
+		String sql2 ="SELECT DISTINCT Country FROM Suppliers ORDER BY Country";
+		
+		try(Connection con = ds.getConnection();
+				Statement stmt = con.createStatement();
+				ResultSet rs = stmt.executeQuery(sql2);){
+			while (rs.next()) {
+				countryList.add(rs.getString(1));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		//3.2
 		String sql = "SELECT SupplierID, SupplierName, ContactName, Address, City,"
 				+ " PostalCode, Country, Phone  "
-				+ "FROM Suppliers WHERE Country = ?";
+				+ " FROM Suppliers WHERE Country = ?";
 
 		try (Connection con = ds.getConnection(); PreparedStatement stmt = con.prepareStatement(sql);) {
 
@@ -76,6 +94,7 @@ public class JDBC17Servlet extends HttpServlet {
 
 		// 4. add attribute
 		request.setAttribute("suppliers", list);
+		request.setAttribute("countryList", countryList);
 
 		// 5. forward
 		String path = "/WEB-INF/view/jdbc03/v17.jsp";

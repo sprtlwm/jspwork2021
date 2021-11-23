@@ -37,32 +37,30 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h1>공급자들</h1>
+        <h1>고객들</h1>
         <!-- table.table>thead>tr>th*8^^tbody -->
         <table class="table">
           <thead>
             <tr>
               <th>ID</th>
-              <th>SNAME</th>
               <th>CNAME</th>
+              <th>CONAME</th>
               <th>ADDRESS</th>
               <th>CITY</th>
               <th>POST</th>
               <th>COUNTRY</th>
-              <th>PHONE</th>
             </tr>
           </thead>
           <tbody>
-            <c:forEach items="${suppliers }" var="supplier">
+            <c:forEach items="${customers }" var="customer">
               <tr>
-                <td>${supplier.supplierID }</td>
-                <td>${supplier.supplierName }</td>
-                <td>${supplier.contactName }</td>
-                <td>${supplier.address }</td>
-                <td>${supplier.city }</td>
-                <td>${supplier.postalCode }</td>
-                <td>${supplier.country }</td>
-                <td>${supplier.phone }</td>
+                <td>${customer.customerID }</td>
+                <td>${customer.customerName }</td>
+                <td>${customer.contactName }</td>
+                <td>${customer.address }</td>
+                <td>${customer.city }</td>
+                <td>${customer.postalCode }</td>
+                <td>${customer.country }</td>
               </tr>
             </c:forEach>
 
