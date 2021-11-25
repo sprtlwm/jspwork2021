@@ -34,7 +34,7 @@ INSERT INTO mytable2 (c4) VALUES ('ab');
 CREATE TABLE mytable3(
 	c1 CHAR(5),
     c2 CHAR(4),
-    c3 VARCHAR(5),
+    c3 VARCHAR(3),
     c4 VARCHAR(2)
 );
 
@@ -45,8 +45,9 @@ SET c1 ='app';
 UPDATE mytable3
 SET c2 ='app';
 UPDATE mytable3
-SET c3 ='app';
-
+SET c3 ='ap';
+UPDATE mytable3
+SET c4 ='a';
 SELECT * FROM mytable3;
 
 
