@@ -60,5 +60,122 @@ public class CustomerDAO {
 		}
 		return list;
 	}
+	
+	public boolean insert(Connection con, Customer customer) {
+		String sql = "INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country) "
+				+ "   VALUES (?, ?, ?, ?, ?, ?)";
+		
+		int rowCount = 0;
+		try(PreparedStatement pstmt = con.prepareStatement(sql)){
+			
+			pstmt.setString(1, customer.getCustomerName());
+			pstmt.setString(2, customer.getContactName());
+			pstmt.setString(3, customer.getAddress());
+			pstmt.setString(4, customer.getCity());
+			pstmt.setString(5, customer.getPostalCode());
+			pstmt.setString(6, customer.getCountry());
+			
+			rowCount = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return rowCount == 1;
+	}
+
+	public boolean update(Connection con, Customer customer) {
+		String sql = "UPDATE Customers " + 
+				"SET  " + 
+				"	CustomerName = ?, " + 
+				"    ContactName = ?, " + 
+				"    Address = ?, " + 
+				"    City = ?, " + 
+				"    PostalCode = ?, " + 
+				"    Country = ? " + 
+				"WHERE " + 
+				"    CustomerID = ? ";
+		int rowCount = 0;
+		
+		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
+			int i = 1;
+			pstmt.setString(i++, customer.getCustomerName());
+			pstmt.setString(i++, customer.getContactName());
+			pstmt.setString(i++, customer.getAddress());
+			pstmt.setString(i++, customer.getCity());
+			pstmt.setString(i++, customer.getPostalCode());
+			pstmt.setString(i++, customer.getCountry());
+			pstmt.setInt(i++, customer.getCustomerID());
+			
+			rowCount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return rowCount == 1;
+	}
+//-------------------------------------------------------------------------
+		public Customer selectById(Connection con, int customerID) {
+			String sql = "SELECT CustomerName, ContactName, Address, City, "
+					+ "          PostalCode, Country "
+					+ "FROM Customers "
+					+ "WHERE CustomerID = ?";
+			
+			Customer customer = new Customer();
+			
+			try (PreparedStatement pstmt = con.prepareStatement(sql)) {
+				pstmt.setInt(1, customerID);
+				
+				try (ResultSet rs = pstmt.executeQuery()) {
+					if (rs.next()) {
+						String customerName = rs.getString("CustomerName");
+						String contactName = rs.getString("ContactName");
+						String address = rs.getString("address");
+						String city = rs.getString("City");
+						String postalCode = rs.getString("PostalCode");
+						String country = rs.getString("Country");
+						
+						customer.setCustomerID(customerID);
+						customer.setCustomerName(customerName);
+						customer.setContactName(contactName);
+						customer.setAddress(address);
+						customer.setCity(city);
+						customer.setPostalCode(postalCode);
+						customer.setCountry(country);
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		
+			return customer;
+		}
+//------------------------------------------------------------------------------
+		public boolean deleteById(Connection con, int customerID) {
+			String sql = "DELETE FROM Customers "
+					   +"   WHERE CustomerID = ?";
+			
+			try(PreparedStatement pstmt = con.prepareStatement(sql)){
+				
+				pstmt.setInt(1, customerID);
+				
+				int count = pstmt.executeUpdate();
+				
+				return count ==1;
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			return false;
+		}
 }
 
+
+	
+	
+	
+	
+	
+	
+	

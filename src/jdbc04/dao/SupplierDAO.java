@@ -12,13 +12,11 @@ import jdbc02.bean.Supplier;
 
 public class SupplierDAO {
 
-	
 	public List<String> getCountryList(Connection con) {
 		List<String> list = new ArrayList<String>();
 		String sql = "SELECT DISTINCT country FROM Suppliers ORDER BY country";
 
-		try (Statement stmt = con.createStatement();
-				ResultSet rs = stmt.executeQuery(sql);) {
+		try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(sql);) {
 
 			while (rs.next()) {
 				list.add(rs.getString(1));
@@ -37,10 +35,9 @@ public class SupplierDAO {
 				+ "FROM Suppliers WHERE Country = ?";
 
 		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
-			
-			
+
 			pstmt.setString(1, country);
-			
+
 			try (ResultSet rs = pstmt.executeQuery()) {
 				while (rs.next()) {
 					Supplier sup = new Supplier();
@@ -54,7 +51,7 @@ public class SupplierDAO {
 					sup.setPostalCode(rs.getString(i++));
 					sup.setCountry(rs.getString(i++));
 					sup.setPhone(rs.getString(i++));
-					
+
 					list.add(sup);
 				}
 			}
@@ -62,6 +59,112 @@ public class SupplierDAO {
 			e.printStackTrace();
 		}
 		return list;
+	}
+
+// -----------------------------------------------------------------------------
+	public boolean insert(Connection con, Supplier supplier) {
+		String sql = "INSERT INTO Suppliers (SupplierName, ContactName, Address, City, PostalCode, Country, Phone)"
+				+ " VALUES (?, ?, ?, ?, ?, ?, ?)";
+		int rowCount = 0;
+		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			pstmt.setString(1, supplier.getSupplierName());
+			pstmt.setString(2, supplier.getContactName());
+			pstmt.setString(3, supplier.getAddress());
+			pstmt.setString(4, supplier.getCity());
+			pstmt.setString(5, supplier.getPostalCode());
+			pstmt.setString(6, supplier.getCountry());
+			pstmt.setString(7, supplier.getPhone());
+
+			rowCount = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return rowCount == 1;
+	}
+
+//---------------------------------------------------------------------------------
+	public boolean update(Connection con, Supplier supplier) {
+		String sql = "UPDATE Suppliers " + "SET  " + "	SupplierName = ?, " + "    ContactName = ?, "
+				+ "    Address = ?, " + "    City = ?, " + "    PostalCode = ?, " + "    Country = ?, "
+				+ "    Phone = ? " + "WHERE " + "    SupplierID = ? ";
+		int rowCount = 0;
+
+		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
+			int i = 1;
+			pstmt.setString(i++, supplier.getSupplierName());
+			pstmt.setString(i++, supplier.getContactName());
+			pstmt.setString(i++, supplier.getAddress());
+			pstmt.setString(i++, supplier.getCity());
+			pstmt.setString(i++, supplier.getPostalCode());
+			pstmt.setString(i++, supplier.getCountry());
+			pstmt.setString(i++, supplier.getPhone());
+			pstmt.setInt(i++, supplier.getSupplierID());
+
+			rowCount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return rowCount == 1;
+	}
+
+//-----------------------------------------------------------------------
+	public Supplier selectById(Connection con, int supplierID) {
+		String sql = "SELECT SupplierName, ContactName, Address, City, " + "          PostalCode, Country, Phone  "
+				+ "FROM Suppliers " + "WHERE SupplierID = ?";
+
+		Supplier supplier = new Supplier();
+
+		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
+			pstmt.setInt(1, supplierID);
+
+			try (ResultSet rs = pstmt.executeQuery()) {
+				if (rs.next()) {
+					String supplierName = rs.getString("SupplierName");
+					String contactName = rs.getString("ContactName");
+					String address = rs.getString("address");
+					String city = rs.getString("City");
+					String postalCode = rs.getString("PostalCode");
+					String country = rs.getString("Country");
+
+					supplier.setSupplierID(supplierID);
+					supplier.setSupplierName(supplierName);
+					supplier.setContactName(contactName);
+					supplier.setAddress(address);
+					supplier.setCity(city);
+					supplier.setPostalCode(postalCode);
+					supplier.setCountry(country);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return supplier;
+	}
+
+//----------------------------------------------------------------------
+	public boolean deleteById(Connection con, int supplierID) {
+
+		String sql = "DELETE FROM Suppliers "
+				   +"   WHERE SupplierID = ?";
+
+		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			pstmt.setInt(1, supplierID);
+
+			int count = pstmt.executeUpdate();
+
+			return count == 1;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return false;
 	}
 
 }
